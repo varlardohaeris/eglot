@@ -1348,9 +1348,10 @@ Use `eglot-managed-p' to determine if current buffer is managed.")
     (add-hook 'change-major-mode-hook #'eglot--managed-mode-off nil t)
     (add-hook 'post-self-insert-hook 'eglot--post-self-insert-hook nil t)
     (add-hook 'pre-command-hook 'eglot--pre-command-hook nil t)
-    (eglot--setq-saving eldoc-documentation-functions
-                        '(eglot-signature-eldoc-function
-                          eglot-hover-eldoc-function))
+    (eglot--setq-saving eldoc-documentation-functions nil
+                        ;; '(eglot-signature-eldoc-function
+                        ;;   eglot-hover-eldoc-function)
+			)
     (eglot--setq-saving eldoc-documentation-strategy
                         #'eldoc-documentation-enthusiast)
     (eglot--setq-saving xref-prompt-for-identifier nil)
